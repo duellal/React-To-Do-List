@@ -1,7 +1,7 @@
 import React from 'react'
 
 const TodoForm = props => {
-   const { todoArray, setTodoArray } = props
+   const { todoArray, setTodoArray, add, clear } = props
 
    return (
       <div>
@@ -10,7 +10,7 @@ const TodoForm = props => {
             placeholder='Write Todo'
          >
          </input>
-         <button onClick={(input) => setTodoArray(...todoArray, { task: input, id: Date.now(), completed: false })}>
+         <button onClick={input => { setTodoArray(add) }}>
             Add Todo
          </button>
          <button>
