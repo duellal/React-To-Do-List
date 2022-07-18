@@ -27,7 +27,7 @@ const App = () => {
 
   //   const [todoArray, setTodoArray] = useState([{ task: String, id: Number, completed: Boolean }])
 
-  console.log(todoArray)
+  console.log(todoArray[0])
 
   const addTask = event => {
     // event.preventDefault();
@@ -52,11 +52,10 @@ const App = () => {
   // For above code: need to go into the TodoForm.js and make the changes apply to add a new entry to the list of tasks
 
 
-  const completedTask = id => {
+  const completedTask = taskId => {
     setTodoArray(todoArray.map(elem => {
-      if (elem.id === id) {
-        elem.completed = !elem.completed;
-        return elem
+      if (elem.id === taskId) {
+        return ({ ...elem, completed: !elem.completed })
       }
       return elem
     }))
@@ -74,7 +73,7 @@ const App = () => {
       <h2>Welcome to your Todo App!</h2>
 
       <div>
-        <TodoText todoArray={todoArray} complete={completedTask} setTodoArray={setTodoArray} clear={clearCompleted} />
+        <TodoText todoArray={todoArray} complete={completedTask} setTodoArray={setTodoArray} clear={completedTask} />
       </div>
 
       <div>

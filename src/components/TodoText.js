@@ -3,7 +3,7 @@ import TodoList from './TodoList'
 
 
 const TodoText = props => {
-   const { todoArray, complete, setTodoArray, clear } = props
+   const { todoArray, complete, setTodoArray, strikeThrough } = props
 
    return (
       <div id='taskList'
@@ -19,7 +19,7 @@ const TodoText = props => {
       // }}
       >
          {todoArray.map(todo => {
-            return <TodoList task={todo.task} key={todo.id} completed={todo.completed} clear={clear} />
+            return <TodoList task={todo.task} key={todo.id} completed={todo.completed} strikeThrough={strikeThrough} />
          })
          }
       </div >
