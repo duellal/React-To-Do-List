@@ -1,16 +1,21 @@
 import React from 'react'
 
 const TodoForm = props => {
-   const { todoArray, setTodoArray, add, clear } = props
+   const { todoArray, setTodoArray, add, change, setNewTodo } = props
 
    return (
       <div>
          <input
             type='text'
             placeholder='Write Todo'
+            onChange={task => {
+               setNewTodo(add(task.target.value))
+            }
+            }
          >
          </input>
-         <button onClick={input => { setTodoArray(add) }}>
+         {/* want to make the Add Todo button, add the inputted text in the input bar */}
+         <button onClick={add}>
             Add Todo
          </button>
          <button>
